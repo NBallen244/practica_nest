@@ -1,10 +1,10 @@
 /* eslint-disable prettier/prettier */
 /* archivo: src/artwork/artwork.entity.ts */
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany } from "typeorm";
-import { MuseumEntity } from "src/museum/museum.entity/museum.entity";
-import { ExhibitionEntity } from "src/exhibition/exhibition.entity/exhibition.entity";
-import { ImageEntity } from "src/image/image.entity/image.entity";
-import { ArtistEntity } from "src/artist/artist.entity/artist.entity";
+import { MuseumEntity } from "../museum/museum.entity";
+import { ExhibitionEntity } from "../exhibition/exhibition.entity";
+import { ImageEntity } from "../image/image.entity";
+import { ArtistEntity } from "../artist/artist.entity";
 
 @Entity()
 export class ArtworkEntity {

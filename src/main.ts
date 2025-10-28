@@ -9,7 +9,6 @@ async function bootstrap() {
     prefix: 'api/v',
     defaultVersion: '1',
   });
-  await app.listen(3000);
+  await app.listen(8000);
 }
-
 bootstrap();

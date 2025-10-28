@@ -1,8 +1,7 @@
 /* eslint-disable prettier/prettier */
-/* archivo: src/museum/museum.entity.ts */
-import { ArtworkEntity } from 'src/artwork/artwork.entity/artwork.entity';
+import { ArtworkEntity } from '../artwork/artwork.entity';
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
-import { ExhibitionEntity } from 'src/exhibition/exhibition.entity/exhibition.entity';
+import { ExhibitionEntity } from '../exhibition/exhibition.entity';
 
 @Entity()
 export class MuseumEntity {

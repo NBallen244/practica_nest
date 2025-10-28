@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 /* archivo: src/movement/movement.entity.ts */
-import { ArtistEntity } from "src/artist/artist.entity/artist.entity";
+import { ArtistEntity } from "../artist/artist.entity";
 import { Column, Entity, JoinTable, ManyToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()

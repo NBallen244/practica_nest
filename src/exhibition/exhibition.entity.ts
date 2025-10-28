@@ -1,8 +1,8 @@
 /* eslint-disable prettier/prettier */
 /* archivo: src/exhibition/exhibition.entity.ts */
-import { MuseumEntity } from 'src/museum/museum.entity/museum.entity';
-import { ArtworkEntity } from 'src/artwork/artwork.entity/artwork.entity';
-import { SponsorEntity } from 'src/sponsor/sponsor.entity/sponsor.entity';
+import { MuseumEntity } from '../museum/museum.entity';
+import { ArtworkEntity } from '../artwork/artwork.entity';
+import { SponsorEntity } from '../sponsor/sponsor.entity';
 import { Column, Entity, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn, JoinColumn } from 'typeorm';
 
 @Entity()

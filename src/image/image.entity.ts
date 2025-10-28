@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 /* archivo: src/image/image.entity.ts */
-import { ArtworkEntity } from "src/artwork/artwork.entity/artwork.entity";
+import { ArtworkEntity } from "../artwork/artwork.entity";
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
