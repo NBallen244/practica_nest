@@ -1,13 +1,13 @@
 /* eslint-disable prettier/prettier */
 /* archivo src/shared/testing-utils/typeorm-testing-config.ts*/
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { ArtistEntity } from 'src/artist/artist.entity';
-import { ArtworkEntity } from 'src/artwork/artwork.entity';
-import { ExhibitionEntity } from 'src/exhibition/exhibition.entity';
-import { ImageEntity } from 'src/image/image.entity';
-import { MovementEntity } from 'src/movement/movement.entity';
-import { MuseumEntity } from 'src/museum/museum.entity';
-import { SponsorEntity } from 'src/sponsor/sponsor.entity';
+import { ArtistEntity } from '../../artist/artist.entity';
+import { ArtworkEntity } from '../../artwork/artwork.entity';
+import { ExhibitionEntity } from '../../exhibition/exhibition.entity';
+import { ImageEntity } from '../../image/image.entity';
+import { MovementEntity } from '../../movement/movement.entity';
+import { MuseumEntity } from '../../museum/museum.entity';
+import { SponsorEntity } from '../../sponsor/sponsor.entity';
 
 export const TypeOrmTestingConfig = () => [
  TypeOrmModule.forRoot({
