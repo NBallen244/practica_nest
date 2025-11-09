@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable prettier/prettier */
-import { Body, Controller, Delete, Get, HttpCode, Param, Post, Put, UseInterceptors } from '@nestjs/common';
+import { Body, Controller, Delete, Get, HttpCode, Param, Post, Put, Query, UseInterceptors } from '@nestjs/common';
 import { MuseumService } from './museum.service';
 import { BusinessErrorsInterceptor } from '../shared/interceptors/business-errors.interceptor';
 import { MuseumDto } from './museum.dto';
@@ -14,8 +14,8 @@ export class MuseumController {
     constructor(private readonly museumService: MuseumService) {}
 
     @Get()
-    async findAll() {
-        return await this.museumService.findAll();
+    async findAll( @Query('city') city?: string, @Query('name') name?: string, @Query('foundedBefore') founded_before?: number, @Query('page') page?: number, @Query('limit') limit?: number) {
+        return await this.museumService.findAll(city, name, founded_before, page, limit);
     }
 
     @Get(':museum_id')
