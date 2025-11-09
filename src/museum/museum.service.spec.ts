@@ -23,7 +23,9 @@ describe('MuseumService', () => {
        description: faker.lorem.sentence(),
        address: faker.location.secondaryAddress(),
        city: faker.location.city(),
-       image: faker.image.url()})
+       image: faker.image.url(),
+       foundedBefore: faker.number.int({ min: 1800, max: 2023}),
+      });
        museumsList.push(museum);
    }
  }
@@ -72,6 +74,7 @@ describe('MuseumService', () => {
      address: faker.location.secondaryAddress(),
      city: faker.location.city(),
      image: faker.image.url(),
+      foundedBefore: faker.number.int({ min: 1800, max: 2023}),
      exhibitions: [],
      artworks: []
    }
