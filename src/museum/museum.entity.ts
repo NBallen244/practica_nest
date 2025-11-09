@@ -19,7 +19,7 @@ export class MuseumEntity {
    @Column()
    image: string;
    @Column()
-   foundedBefore: number;
+   founded_before: number;
 
    @OneToMany(() => ExhibitionEntity, exhibition => exhibition.museum)
    exhibitions: ExhibitionEntity[];

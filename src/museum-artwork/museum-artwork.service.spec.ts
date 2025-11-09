@@ -91,7 +91,7 @@ describe('MuseumArtworkService', () => {
      address: faker.location.secondaryAddress(),
      city: faker.location.city(),
      image: faker.image.url(),
-     foundedBefore: faker.number.int({ min: 1800, max: 2023}),
+     founded_before: faker.number.int({ min: 1800, max: 2023}),
    })
 
    await expect(() => service.addArtworkMuseum(newMuseum.id, "0")).rejects.toHaveProperty("message", "The artwork with the given id was not found");

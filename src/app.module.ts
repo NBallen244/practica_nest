@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { Module } from '@nestjs/common';
+import { Module, OnModuleInit } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MuseumModule } from './museum/museum.module';
@@ -18,6 +18,7 @@ import { ImageEntity } from './image/image.entity';
 import { MovementEntity } from './movement/movement.entity';
 import { MuseumEntity } from './museum/museum.entity';
 import { SponsorEntity } from './sponsor/sponsor.entity';
+import { SeedService } from './sql/seed/seed.service';
 
 @Module({
   imports: [MuseumModule, ExhibitionModule, ArtworkModule, ArtistModule, SponsorModule, ImageModule, MovementModule, MuseumArtworkModule,
@@ -34,6 +35,12 @@ import { SponsorEntity } from './sponsor/sponsor.entity';
    }),
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, SeedService],
 })
-export class AppModule {}
+export class AppModule implements OnModuleInit{
+  constructor(private readonly seedService: SeedService) {}
+  /* Ejecuta el seed SQL al iniciar el módulo, llenando la tabla de museos */
+  async onModuleInit() {
+    await this.seedService.runSqlSeed();
+  }
+}
