@@ -5,7 +5,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { ArtworkEntity } from '../artwork/artwork.entity';
 import { MuseumEntity } from '../museum/museum.entity';
 import { Repository } from 'typeorm';
-import { BusinessLogicException, BusinessError } from '../shared/errors/bussiness-errors';
+import { BussinessLogicException, BussinessError } from '../shared/errors/bussiness-errors';
 
 @Injectable()
 export class MuseumArtworkService {
@@ -20,11 +20,11 @@ export class MuseumArtworkService {
    async addArtworkMuseum(museumId: string, artworkId: string): Promise<MuseumEntity> {
        const artwork: ArtworkEntity|null = await this.artworkRepository.findOne({where: {id: artworkId}});
        if (!artwork)
-         throw new BusinessLogicException("The artwork with the given id was not found", BusinessError.NOT_FOUND);
+         throw new BussinessLogicException("The artwork with the given id was not found", BussinessError.NOT_FOUND);
      
        const museum: MuseumEntity|null = await this.museumRepository.findOne({where: {id: museumId}, relations: ["artworks", "exhibitions"]})
        if (!museum)
-         throw new BusinessLogicException("The museum with the given id was not found", BusinessError.NOT_FOUND);
+         throw new BussinessLogicException("The museum with the given id was not found", BussinessError.NOT_FOUND);
    
        museum.artworks = [...museum.artworks, artwork];
        return await this.museumRepository.save(museum);
@@ -33,16 +33,16 @@ export class MuseumArtworkService {
    async findArtworkByMuseumIdArtworkId(museumId: string, artworkId: string): Promise<ArtworkEntity> {
        const artwork: ArtworkEntity|null = await this.artworkRepository.findOne({where: {id: artworkId}});
        if (!artwork)
-         throw new BusinessLogicException("The artwork with the given id was not found", BusinessError.NOT_FOUND)
+         throw new BussinessLogicException("The artwork with the given id was not found", BussinessError.NOT_FOUND)
       
        const museum: MuseumEntity|null = await this.museumRepository.findOne({where: {id: museumId}, relations: ["artworks"]});
        if (!museum)
-         throw new BusinessLogicException("The museum with the given id was not found", BusinessError.NOT_FOUND)
+         throw new BussinessLogicException("The museum with the given id was not found", BussinessError.NOT_FOUND)
   
        const museumArtwork: ArtworkEntity|undefined = museum.artworks.find(e => e.id === artwork.id);
   
        if (!museumArtwork)
-         throw new BusinessLogicException("The artwork with the given id is not associated to the museum", BusinessError.PRECONDITION_FAILED)
+         throw new BussinessLogicException("The artwork with the given id is not associated to the museum", BussinessError.PRECONDITION_FAILED)
   
        return museumArtwork;
    }
@@ -50,7 +50,7 @@ export class MuseumArtworkService {
    async findArtworksByMuseumId(museumId: string): Promise<ArtworkEntity[]> {
        const museum: MuseumEntity|null = await this.museumRepository.findOne({where: {id: museumId}, relations: ["artworks"]});
        if (!museum)
-         throw new BusinessLogicException("The museum with the given id was not found", BusinessError.NOT_FOUND)
+         throw new BussinessLogicException("The museum with the given id was not found", BussinessError.NOT_FOUND)
       
        return museum.artworks;
    }
@@ -59,12 +59,12 @@ export class MuseumArtworkService {
        const museum: MuseumEntity|null = await this.museumRepository.findOne({where: {id: museumId}, relations: ["artworks"]});
    
        if (!museum)
-         throw new BusinessLogicException("The museum with the given id was not found", BusinessError.NOT_FOUND)
+         throw new BussinessLogicException("The museum with the given id was not found", BussinessError.NOT_FOUND)
    
        for (let i = 0; i < artworks.length; i++) {
          const artwork: ArtworkEntity|null = await this.artworkRepository.findOne({where: {id: artworks[i].id}});
          if (!artwork)
-           throw new BusinessLogicException("The artwork with the given id was not found", BusinessError.NOT_FOUND)
+           throw new BussinessLogicException("The artwork with the given id was not found", BussinessError.NOT_FOUND)
        }
    
        museum.artworks = artworks;
@@ -74,16 +74,16 @@ export class MuseumArtworkService {
    async deleteArtworkMuseum(museumId: string, artworkId: string){
        const artwork: ArtworkEntity|null = await this.artworkRepository.findOne({where: {id: artworkId}});
        if (!artwork)
-         throw new BusinessLogicException("The artwork with the given id was not found", BusinessError.NOT_FOUND)
+         throw new BussinessLogicException("The artwork with the given id was not found", BussinessError.NOT_FOUND)
    
        const museum: MuseumEntity|null = await this.museumRepository.findOne({where: {id: museumId}, relations: ["artworks"]});
        if (!museum)
-         throw new BusinessLogicException("The museum with the given id was not found", BusinessError.NOT_FOUND)
+         throw new BussinessLogicException("The museum with the given id was not found", BussinessError.NOT_FOUND)
    
        const museumArtwork: ArtworkEntity|undefined = museum.artworks.find(e => e.id === artwork.id);
    
        if (!museumArtwork)
-           throw new BusinessLogicException("The artwork with the given id is not associated to the museum", BusinessError.PRECONDITION_FAILED)
+           throw new BussinessLogicException("The artwork with the given id is not associated to the museum", BussinessError.PRECONDITION_FAILED)
 
        museum.artworks = museum.artworks.filter(e => e.id !== artworkId);
        await this.museumRepository.save(museum);
