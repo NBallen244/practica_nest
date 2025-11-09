@@ -2,7 +2,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { MuseumEntity } from './museum.entity';
-import { Repository } from 'typeorm/browser/repository/Repository.js';
+import { Repository } from 'typeorm';
 import { BussinessError, BussinessLogicException } from '../shared/errors/bussiness-errors';
 
 @Injectable()

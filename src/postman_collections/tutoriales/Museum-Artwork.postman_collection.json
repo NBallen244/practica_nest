@@ -1,0 +1,225 @@
+{
+	"info": {
+		"_postman_id": "e5cd212f-3d24-4f9f-af6b-2fa201fd341c",
+		"name": "Museum-Artwork",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37641259"
+	},
+	"item": [
+		{
+			"name": "Add Museum Artwork",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/museums/{{museum_id}}/artworks/{{artwork_id_1}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"museums",
+						"{{museum_id}}",
+						"artworks",
+						"{{artwork_id_1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Museum Artwork Invalid  Art",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/museums/{{museum_id}}/artworks/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"museums",
+						"{{museum_id}}",
+						"artworks",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Museum Artwork Invalid  Museum",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/museums/00000000-0000-0000-0000-000000000000/artworks/{{artwork_id_1}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"museums",
+						"00000000-0000-0000-0000-000000000000",
+						"artworks",
+						"{{artwork_id_1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Art from Museum",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{base_url}}/museums/{{museum_id}}/artworks/{{artwork_id}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"museums",
+						"{{museum_id}}",
+						"artworks",
+						"{{artwork_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Art from Museum Invalid Art",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{base_url}}/museums/{{museum_id}}/artworks/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"museums",
+						"{{museum_id}}",
+						"artworks",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Art from Museum Invalid Museum",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{base_url}}/museums/00000000-0000-0000-0000-000000000000/artworks/{{artwork_id_1}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"museums",
+						"00000000-0000-0000-0000-000000000000",
+						"artworks",
+						"{{artwork_id_1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Artworks",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n   {\r\n       \"id\": \"{{artwork_id_2}}\"\r\n   }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/museums/{{museum_id}}/artworks",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"museums",
+						"{{museum_id}}",
+						"artworks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete artwork from museum",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/museums/{{museum_id}}/artworks{{artwork_id_2}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"museums",
+						"{{museum_id}}",
+						"artworks{{artwork_id_2}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -3,7 +3,7 @@
 /* eslint-disable prettier/prettier */
 import { Body, Controller, Delete, Get, HttpCode, Param, Post, Put, UseInterceptors } from '@nestjs/common';
 import { MuseumService } from './museum.service';
-import { BusinessErrorsInterceptor } from 'src/shared/interceptors/business-errors.interceptor';
+import { BusinessErrorsInterceptor } from '../shared/interceptors/business-errors.interceptor';
 import { MuseumDto } from './museum.dto';
 import { MuseumEntity } from './museum.entity';
 import { plainToInstance } from 'class-transformer';

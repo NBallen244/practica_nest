@@ -1,0 +1,220 @@
+{
+	"info": {
+		"_postman_id": "df3cf1d5-30ad-4935-9f0e-e07c4713bfed",
+		"name": "Museums",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37641259"
+	},
+	"item": [
+		{
+			"name": "Add Museum",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const responseJson = pm.response.json();\r",
+							"const museumId = responseJson.id;\r",
+							"pm.collectionVariables.set(\"museum_id\", museumId);"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"name\": \"Smithsonian national museum of natural history\",\r\n   \"description\": \"The world's most popular natural history museum is dedicated to understanding the natural world and our place in it. Delve into the fascinating story of our planet, from its fiery beginnings through billions of years of transformation, and explore life on Earth through exhibitions and activities, collection objects and research that happens in the lab and in the field. The museum is larger than 18 football fields and is home to the largest natural history collection in the world.\",\r\n   \"address\": \"10th St. & Constitution Ave. NW, Washington, DC\",\r\n   \"city\": \"Washington DC\",\r\n   \"image\": \"https://www.si.edu/sites/default/files/newsdesk/fact_sheets/nhb2015-02891.jpg\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/museums",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"museums"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Museums",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/museums",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"museums"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Museum by ID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"name\": \"Smithsonian national museum of natural history\",\r\n   \"description\": \"The world's most popular natural history museum is dedicated to understanding the natural world and our place in it. Delve into the fascinating story of our planet, from its fiery beginnings through billions of years of transformation, and explore life on Earth through exhibitions and activities, collection objects and research that happens in the lab and in the field. The museum is larger than 18 football fields and is home to the largest natural history collection in the world.\",\r\n   \"address\": \"10th St. & Constitution Ave. NW, Washington, DC\",\r\n   \"city\": \"Washington DC\",\r\n   \"image\": \"https://www.si.edu/sites/default/files/newsdesk/fact_sheets/nhb2015-02891.jpg\"\r\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/museums/{{museum_id}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"museums",
+						"{{museum_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Invalid Museum",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/museums/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"museums",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Museum",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"name\": \"Smithsonian national museum of natural history\",\r\n   \"description\": \"The world's most popular natural history museum is dedicated to understanding the natural world and our place in it. Delve into the fascinating story of our planet, from its fiery beginnings through billions of years of transformation, and explore life on Earth through exhibitions and activities, collection objects and research that happens in the lab and in the field. The museum is larger than 18 football fields and is home to the largest natural history collection in the world.\",\r\n   \"address\": \"10th St. & Constitution Ave. NW, Washington, DC (new address)\",\r\n   \"city\": \"Washington DC\",\r\n   \"image\": \"https://www.si.edu/sites/default/files/newsdesk/fact_sheets/nhb2015-02891.jpg\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/museums/{{museum_id}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"museums",
+						"{{museum_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Invalid Museum",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"name\": \"Smithsonian national museum of natural history\",\r\n   \"description\": \"The world's most popular natural history museum is dedicated to understanding the natural world and our place in it. Delve into the fascinating story of our planet, from its fiery beginnings through billions of years of transformation, and explore life on Earth through exhibitions and activities, collection objects and research that happens in the lab and in the field. The museum is larger than 18 football fields and is home to the largest natural history collection in the world.\",\r\n   \"address\": \"10th St. & Constitution Ave. NW, Washington, DC (new address)\",\r\n   \"city\": \"Washington DC\",\r\n   \"image\": \"https://www.si.edu/sites/default/files/newsdesk/fact_sheets/nhb2015-02891.jpg\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/museums/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"museums",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Museum",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/museums/{{museum_id}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"museums",
+						"{{museum_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Invalid Museum",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/museums/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"museums",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "museum_id",
+			"value": ""
+		}
+	]
+}

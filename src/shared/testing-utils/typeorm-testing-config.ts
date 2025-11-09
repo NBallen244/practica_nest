@@ -1,5 +1,4 @@
 /* eslint-disable prettier/prettier */
-/* archivo src/shared/testing-utils/typeorm-testing-config.ts*/
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ArtistEntity } from '../../artist/artist.entity';
 import { ArtworkEntity } from '../../artwork/artwork.entity';
@@ -16,7 +15,6 @@ export const TypeOrmTestingConfig = () => [
    dropSchema: true,
    entities: [ArtistEntity, ArtworkEntity, ExhibitionEntity, ImageEntity, MovementEntity, MuseumEntity, SponsorEntity],
    synchronize: true,
-   keepConnectionAlive: true,
  }),
  TypeOrmModule.forFeature([ArtistEntity, ArtworkEntity, ExhibitionEntity, ImageEntity, MovementEntity, MuseumEntity, SponsorEntity]),
 ];
